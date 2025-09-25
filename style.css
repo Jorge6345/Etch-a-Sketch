@@ -1,0 +1,70 @@
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+#set-grid-amount {
+    min-width: 120px;
+    min-height: 35px;
+    border-radius: 4px;
+    border: 0;
+    background-color: rgb(255, 179, 0);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#set-grid-amount:active {
+    background-color: rgba(255, 179, 0, 0.621);;
+}
+
+#display-grid-size {
+    color: rgb(102, 102, 102);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+}
+
+#grid-container {
+    --n: 16;
+    width: min(90vw, 90dvh);
+    height: min(90vw, 90dvh);
+    display: flex;
+    gap: 0px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    box-sizing: border-box;
+}
+
+.grid {
+    background-color: rgb(5, 5, 5);
+    flex: 0 0 calc(100% / var(--n));
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+}
+
+#reset-button {
+    min-width: 120px;
+    min-height: 35px;
+    border-radius: 4px;
+    border: 0;
+    background-color: rgb(0, 94, 255);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#reset-button:active {
+    background-color: rgba(0, 94, 255, 0.588);
+}
