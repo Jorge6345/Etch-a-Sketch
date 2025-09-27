@@ -1,5 +1,49 @@
 body {
     display: flex;
+    gap: 5px;
+    flex-wrap:wrap-reverse;
+    justify-content: center;
+}
+
+
+
+.left-container {
+    width: min(90vw, 90dvh);
+    height: min(90vw, 90dvh);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-container {
+    width: min(70vw, 70dvh);
+    height: min(70vw, 70dvh);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.text-info {
+    color:rgb(57, 53, 51);
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.colors-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    gap: 4px;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.right-container {
+    display: flex;
     flex-direction: column;
     gap: 5px;
     align-items: center;
@@ -8,7 +52,6 @@ body {
 .buttons-container {
     display: flex;
     gap: 20px;
-    width: 100%;
     justify-content: center;
 }
 
@@ -19,9 +62,10 @@ body {
     border: 0;
     background-color: rgb(255, 179, 0);
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     box-sizing: border-box;
+    color: black;
 }
 
 #set-grid-amount:active {
@@ -67,4 +111,76 @@ body {
 
 #reset-button:active {
     background-color: rgba(0, 94, 255, 0.588);
+}
+
+.color-box {
+    aspect-ratio: 1 / 1;
+    box-sizing: border-box;
+    flex: 0 0 calc(90% / 3);
+    border-radius: 4px;
+    border: 0;
+    cursor: pointer;
+}
+
+#blue {
+    background-color: blue;
+}
+#blue:active {
+    background-color: rgba(0, 94, 255, 0.588);
+}
+
+#red {
+    background-color: red;
+}
+#red:active {
+    background-color: rgba(255, 0, 0, 0.588);
+}
+
+#yellow {
+    background-color: yellow;
+}
+#yellow:active {
+    background-color: rgba(255, 255, 0, 0.588);
+}
+
+#green {
+    background-color: green;
+}
+#green:active {
+    background-color: rgba(0, 128, 0, 0.588);
+}
+
+#brown {
+    background-color: brown;
+}
+#brown:active {
+    background-color: rgba(165, 42, 42, 0.588);
+}
+
+#purple {
+    background-color: purple;
+}
+#purple:active {
+    background-color: rgba(128, 0, 128, 0.588);
+}
+
+#gray {
+    background-color: gray;
+}
+#gray:active {
+    background-color: rgba(128, 128, 128, 0.588);
+}
+
+#beige {
+    background-color: beige;
+}
+#beige:active {
+    background-color: rgba(245, 245, 220, 0.588);
+}
+
+#black {
+    background-color: black;
+}
+#black:active {
+    background-color: rgba(0, 0, 0, 0.588);
 }

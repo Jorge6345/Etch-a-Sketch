@@ -2,6 +2,7 @@ const gridContainer = document.getElementById("grid-container");
 const setGridAmountButton = document.getElementById("set-grid-amount");
 const resetGridButton = document.getElementById("reset-button");
 const displayGridSize = document.getElementById("display-grid-size");
+const allColorButtons = document.querySelectorAll(".color-box");
 
 function makeGrid (gridSize) {
     displayGridSize.textContent = "Grid Size: " + gridSize + "x" + gridSize;
@@ -16,11 +17,21 @@ function makeGrid (gridSize) {
     }
 }
 
+const downPointers = new Set();
+function isScreenPressed (event) {
+    if (event.pointerType === "mouse") {
+        return (event.buttons & 1) === 1;
+    }
+    return event.pressure > 0 || downPointers.has(event.pointerId);
+}
+
 function setBrushColor (brushColor) {
     const allGrids = document.querySelectorAll(".grid");
     allGrids.forEach(grid => {
-        grid.addEventListener("mouseenter", () => {
-            grid.style.backgroundColor = brushColor;
+        grid.addEventListener("pointerenter", (event) => {
+            if (isScreenPressed(event)) {
+                grid.style.backgroundColor = brushColor;
+            }
         });
     });
 }
@@ -39,14 +50,21 @@ setGridAmountButton.addEventListener("click", () => {
     const deleteAllGrids = document.querySelectorAll(".grid");
     deleteAllGrids.forEach(grid => {
         grid.classList.remove("grid");
-    })
+    });
 
     let userGridSize = prompt("Please select grid size");
-
     makeGrid(userGridSize);
+
     setBrushColor("blue");
-})
+});
 
 resetGridButton.addEventListener("click", () => {
     resetGridColor();
+})
+
+allColorButtons.forEach(colorBox =>  {
+    colorBox.addEventListener("click", (e) => {
+        const bgColor = window.getComputedStyle(e.target).backgroundColor;
+        setBrushColor(bgColor);
+    })
 })
